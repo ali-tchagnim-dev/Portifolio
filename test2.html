@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -670,3 +671,677 @@
     </script>
 </body>
 </html>
+=======
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio & Timeline Animée 3D</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: white;
+            background: #000;
+        }
+
+        .container {
+            position: relative;
+            height: 95vh;
+        }
+
+        .container .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('im.jpg') no-repeat center center/cover;
+            filter: blur(1px);
+            z-index: -2;
+        }
+
+        .container .color-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #10210ad2;
+            z-index: -1;
+        }
+
+        .container .header {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header .logo {
+            font-size: 20px;
+            padding-top: 10px;
+            padding-left: 20px;
+            text-transform: uppercase;
+        }
+
+        .header .navbar ul {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+            text-transform: uppercase;
+        }
+
+        .header .navbar a {
+            text-transform: uppercase;
+            font-size: 0.8142em;
+            padding: 0.6rem 0.7rem;
+            line-height: 1.625rem;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .header .navbar a:hover {
+            background: #ffffff47;
+            border-radius: 5px;
+        }
+
+        .home {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 70vh;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .profile img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            transition: 0.3s;
+        }
+        .animated {
+            animation: glowing 1.5s infinite alternate;
+        }
+        @keyframes glowing {
+            0% {
+                box-shadow: 0 0 5px #378C3F, 0 0 10px #378C3F;
+            }
+            100% {
+                box-shadow: 0 0 15px #378C3F, 0 0 30px #378C3F;
+            }
+        }
+
+        .profile h1{
+            font-size: 2.3rem;
+            letter-spacing: 5px;
+        }
+
+        .profile p{
+            font-weight: bold;
+        }
+
+        .buttons{
+            padding-top: 20px;
+        }
+
+        .buttons a {
+            margin: 10px;
+            padding: 10px 20px;
+            border: none;
+            background: #00334D;
+            color: white;
+            cursor: pointer;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .buttons a:hover{
+            background: #0a567cf5;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+            padding-top: 5px;
+        }
+
+
+        .social-icons a {
+            width: 55px; 
+            height: 55px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background-color: #00334D; 
+            color: white; 
+            font-size: 24px;
+            text-decoration: none;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        #facebook:hover{
+            background: #007bff;
+        }
+
+        #linkedin:hover{
+            background: #0A66C2;
+        }
+
+        #instagram:hover{
+            background: #E1306C;
+        }
+
+        #pinterest:hover{
+            background: #E60023;
+        }
+
+        #github:hover{
+            background: #000;
+        }
+
+
+     
+        .about-section {
+            display: flex;
+            justify-content: left;
+            max-width: 95%;
+            padding: 60px;
+            padding-top: 7%;
+        }
+
+        .about{
+            width: 100%;
+        }
+        .basic-info {
+            width: 100%;
+            margin-left: 75px;
+        }
+
+        .basic-info h2  {
+            color: #09c;
+            font-size: 2rem;
+            text-transform: capitalize;
+        }
+
+        .about h2  {
+            color: #09c;
+            font-size: 2rem;
+            text-transform: capitalize;
+        }
+
+
+        .about p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .basic-info ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .basic-info li {
+            font-size: 20px;
+            margin: 20px 0;
+        }
+
+        .basic-info i{
+            margin-right: 10px;
+        }
+
+        .title{
+            text-align: center;
+            text-transform: uppercase;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: #09c;
+        }
+
+        .timeline {
+            width: 60%;
+            position: relative;
+            transform-style: preserve-3d;
+            margin: auto;
+            padding: 50px 0;
+        }
+        .timeline::before {
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: 0;
+            width: 2px;
+            height: 90%;
+            background: linear-gradient(180deg, #fff, #fff);
+            transform: translateX(-50%);
+        }
+        .event {
+            width: 45%;
+            padding: 20px;
+            margin: 40px 0;
+            position: relative;
+            opacity: 0;
+            transform: translateY(50px) rotateY(15deg);
+            transition: all 0.8s ease-in-out;
+            border-radius: 10px;
+        }
+        .event:nth-child(odd) {
+            left: -2%;
+            text-align: right;
+            transform-origin: left;
+        }
+        .event:nth-child(even) {
+            left: 52%;
+            transform-origin: right;
+        }
+        .event::before {
+            content: "";
+            position: absolute;
+            top: 20px;
+            right: -24px;
+            width: 20px;
+            height: 20px;
+            background: #09c;
+            border-radius: 50%;
+
+        }
+        .event:nth-child(even)::before {
+            left: -24px;
+        }
+        .event h2 {
+            margin: 0 0 10px;
+            font-size: 1.5em;
+            color: #09c;
+        }
+        .event span {
+            font-size: 1em;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        #gauche span {
+            position: absolute;
+            top: 25px;
+            right: -130px;
+        }
+
+        #droite span {
+            position: absolute;
+            top: 25px;
+            left: -130px;
+        }
+
+        .aujourdhui span {
+            position: absolute;
+            top: 25px;
+            right: -200px;
+        }
+
+        .event.show {
+            opacity: 1;
+            transform: translateY(0) rotateY(0deg);
+        }
+
+        .image-humeur{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-bottom: 30px;
+        }
+
+        .image-humeur img{
+            width: 700px;
+            object-fit: cover;
+        }
+
+        .text-section{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 2px solid #fff;
+            border-top: 2px solid #fff;
+            padding: 20px 0;
+            text-align: center;
+            margin: auto 50px;
+            margin-bottom: 50px;
+        }
+
+        .text-section div{
+            max-width: 49%;
+        }
+
+        .text-section div span{
+            font-size: 1.8rem;
+            color: #09c;
+        }
+
+        .text-section div p{
+            font-size: 1.3rem;
+        }
+
+        .text-section div p a{
+            text-decoration: none;
+            color: #09c;
+        }
+
+
+        .blogs{
+            padding: 20px 7%;
+        }
+
+        .blogs .title-blogs{
+            font-size: 2rem;
+            color: #007bff;
+            font-weight: bold;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+
+        .blogs .container .box{
+            position: relative;
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .blogs .container .box img{
+            width: 100%;
+            transform: scale(1);
+            transition: transform .2s linear;
+        }
+
+        .blogs .container .box img:hover{
+            transform: scale(1.06);
+        }
+
+        .blogs .container .box .icons{
+            position: absolute;
+            top: 20px; right: 10px;
+            display: flex;
+            flex-direction: column;
+            opacity: 0;
+            transition: opacity .2s linear;
+        }
+
+        .blogs .container .box .icons a{
+            margin-bottom: 10px;
+            padding: 7px;
+            background: #eee;
+            border-radius: 5px;
+            color: #093476;
+            transition: color .2s linear;
+        }
+
+        .blogs .container .box .icons a:hover{
+            color: #ffc300;
+        }
+
+        .blogs .container .box:hover .icons{
+            opacity: 1;
+        }
+
+    
+
+    
+
+
+
+
+    </style>
+</head>
+<body>
+    <section class="container">
+        <div class="background"></div>
+        <div class="color-background"></div>
+
+        <header class="header">
+            
+            <div class="logo">ATG_Gregoire_dev</div>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Career</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Projects</a></li>
+                    <li><a href="#">Tech Stack</a></li>
+                    <li><a href="#">Workspace</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+        
+        <section class="home">
+            <div class="profile">
+                <img src="1.jpg" alt="Profil" class="profile-img animated" id="profile">
+                <h1>ALI Tchagnim Grégoire</h1>
+                <p>TECH ENTHUSIAST | FULL STACK DEV | WEB APP DEVELOPMENT | TEST AUTOMATION</p>
+                <div class="buttons">
+                    <a href="#">Get in touch</a>
+                    <a href="#">Resume</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="social">
+            <div class="social-icons">
+                <a href="#" class="fab fa-facebook" id="facebook"></a>
+                <a href="#" class="fab fa-instagram" id="instagram"></a>
+                <a href="#" class="fab fa-linkedin" id="linkedin"></a>
+                <a href="#" class="fab fa-pinterest" id="pinterest" ></a>
+                <a href="#" class="fab fa-github" id="github"></a>
+
+            </div>
+        </section>
+        
+    </section>
+
+    <section class="about-section">
+        <div class="about">
+            <h2>About</h2>
+            <p>Hi 👋 I'm <strong>Adhitya</strong>, Experienced Software Engineer with expertise in versatile technologies involving in Full-stack development and automation. I build Sites, Apps, Teach aspiring developers and a work in progress.</p>
+            <p>Constantly Embracing new Techs and Jack of all Trades is what I believe in.</p>
+        </div>
+        <div class="basic-info">
+            <h2>Basic Information</h2>
+            <ul>
+                <li><i class="fas fa-calendar"></i> 03 July, 1995</li>
+                <li><i class="fas fa-comment"></i> adhityamurali03@gmail.com</li>
+                <li><i class="fas fa-phone"></i> +91 9677633146</li>
+                <li><i class="fas fa-map-marker-alt"></i> Chennai, India</li>
+                <li><i class="fas fa-globe"></i> Tamil, English, Hindi</li>
+            </ul>
+        </div>
+    </section>
+    <h1 class="title">THE JOURNEY</h1>
+    <section class="timeline">
+        <div class="event" id="gauche">
+            <h2>Période Universitaire </h2>
+            <span>2018-2022</span>
+            <p>J'ai poursuivi mes études en développement web...</p>
+        </div>
+        <div class="event" id="droite">
+            <h2>Septembre 15, 2022</h2>
+            <p>Après l'obtention de mon diplôme, j'ai commencé à travailler sur divers projets web...</p>
+        </div>
+        
+    </section>
+
+    <section class="image-humeur">
+        <div>
+            <img src="amazing-5bdae6.jpg" alt="">
+        </div>
+    </section>
+
+    <section class="timeline">
+        <div class="event" id="gauche">
+            <h2>Période Universitaire </h2>
+            <span>2018-2022</span>
+            <p>J'ai poursuivi mes études en développement web...</p>
+        </div>
+        <div class="event" id="droite">
+            <h2>Septembre 15, 2022</h2>
+            <p>Après l'obtention de mon diplôme, j'ai commencé à travailler sur divers projets web...</p>
+        </div>
+        
+    </section>
+
+    <section class="text-section">
+
+        <div>
+            <span class="header-text">September 8 , 2016 </span>
+            <p>After Graduation, with no tech background it was difficult to get into the IT Sector. Fortunately, got an oppurtunity from a Start-up called 
+                <a href="#">Tristha Global private limited</a>. 
+                I decided to join and it got to be my first job in my professional career. Boom!! From Mechie to a Techie.😉</p>
+        </div>
+
+    </section>
+
+    <section class="timeline">
+        <div class="event" id="gauche">
+            <h2>Période Universitaire </h2>
+            <span>2018-2022</span>
+            <p>J'ai poursuivi mes études en développement web...</p>
+        </div>
+        <div class="event" id="droite">
+            <h2>Septembre 15, 2022</h2>
+            <span>2018-2022</span>
+            <p>Après l'obtention de mon diplôme, j'ai commencé à travailler sur divers projets web...</p>
+        </div>
+        
+    </section>
+
+
+    <section class="blogs">
+
+        <h1 class="title-blogs">Blogs</h1>
+
+        <div class="project-div">
+            <h2>Projects</h2>
+
+            <div class="container">
+                <div class="box">
+                    <a href="#"><img src="coffee.jpg" alt=""></a>
+                    <div class="icons">
+                        <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
+                        <a href="#"><i class="fa fa-eye"></i></a>
+                    </div>
+                    <div class="content">
+                        <h3>Online coffee shopping website</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus fugit totam voluptatum ex? Fugiat, adipisci!</p>
+                        <p class="tech"><h4>Tech</h4> Angular, html, css3</p>
+                    </div>
+                </div>
+
+                <div class="box">
+                    <a href="#"><img src="coffee.jpg" alt=""></a>
+                    <div class="icons">
+                        <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
+                        <a href="#"><i class="fa fa-eye"></i></a>
+                    </div>
+                    <div class="content">
+                        <h3>Online coffee shopping website</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus fugit totam voluptatum ex? Fugiat, adipisci!</p>
+                        <p class="tech"><h4>Tech</h4> Angular, html, css3</p>
+                    </div>
+                </div>
+
+                <div class="box">
+                    <a href="#"><img src="coffee.jpg" alt=""></a>
+                    <div class="icons">
+                        <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
+                        <a href="#"><i class="fa fa-eye"></i></a>
+                    </div>
+                    <div class="content">
+                        <h3>Online coffee shopping website</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus fugit totam voluptatum ex? Fugiat, adipisci!</p>
+                        <p class="tech"><h4>Tech</h4> Angular, html, css3</p>
+                    </div>
+                </div>
+
+                <div class="box">
+                    <a href="#"><img src="coffee.jpg" alt=""></a>
+                    <div class="icons">
+                        <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
+                        <a href="#"><i class="fa fa-eye"></i></a>
+                    </div>
+                    <div class="content">
+                        <h3>Online coffee shopping website</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus fugit totam voluptatum ex? Fugiat, adipisci!</p>
+                        <p class="tech"><h4>Tech</h4> Angular, html, css3</p>
+                    </div>
+                </div>
+
+                <div class="box">
+                    <a href="#"><img src="coffee.jpg" alt=""></a>
+                    <div class="icons">
+                        <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
+                        <a href="#"><i class="fa fa-eye"></i></a>
+                    </div>
+                    <div class="content">
+                        <h3>Online coffee shopping website</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus fugit totam voluptatum ex? Fugiat, adipisci!</p>
+                        <p class="tech"><h4>Tech</h4> Angular, html, css3</p>
+                    </div>
+                </div>
+
+                <div class="box">
+                    <a href="#"><img src="coffee.jpg" alt=""></a>
+                    <div class="icons">
+                        <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
+                        <a href="#"><i class="fa fa-eye"></i></a>
+                    </div>
+                    <div class="content">
+                        <h3>Online coffee shopping website</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus fugit totam voluptatum ex? Fugiat, adipisci!</p>
+                        <p class="tech"><h4>Tech</h4> Angular, html, css3</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+   
+
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const events = document.querySelectorAll(".event");
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("show");
+                    } else {
+                        entry.target.classList.remove("show");
+                    }
+                });
+            }, { threshold: 0.2 });
+
+            events.forEach(event => {
+                observer.observe(event);
+            });
+        });
+    </script>
+</body>
+</html>
+>>>>>>> fa5f048 (mise a jours)
